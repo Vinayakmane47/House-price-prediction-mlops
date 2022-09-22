@@ -1,5 +1,5 @@
 from housing.entity.config_entity import DataIngestionConfig , DataValidationConfig , DataTransformationConfig, \
-ModelEvaluationConfig, ModelPusherConfig, ModelTrainingConfig , TrainingPipelineConfig
+ModelEvaluationConfig, ModelPusherConfig, ModelTrainerConfig, TrainingPipelineConfig
    
 from housing.util.util import read_yaml_file 
 import os 
@@ -77,7 +77,7 @@ class Configuration :
     def get_data_transformation_config(self)->DataTransformationConfig: 
         pass 
 
-    def get_model_trainer_config(self)->ModelTrainingConfig: 
+    def get_model_trainer_config(self)->ModelTrainerConfig: 
         pass 
 
     def get_model_evaluation_config(self)->ModelEvaluationConfig: 
