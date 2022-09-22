@@ -27,7 +27,7 @@ class Configuration :
     def get_data_ingestion_config(self)->DataIngestionConfig: 
         try : 
             #artifact_dir = self.training_pipeline_config.artifact_dir
-            artifact_dir = self.get_training_pipeline_config()["artifact_dir"]
+            artifact_dir = self.get_training_pipeline_config().artifact_dir
             data_ingestion_artifact_dir=os.path.join(
                 artifact_dir,
                 DATA_INGESTION_ARTIFACT_DIR,
@@ -52,6 +52,7 @@ class Configuration :
                 ingested_data_dir,
                 data_ingestion_info[DATA_INGESTION_TRAIN_DIR_KEY]
             )
+
             ingested_test_dir =os.path.join(
                 ingested_data_dir,
                 data_ingestion_info[DATA_INGESTION_TEST_DIR_KEY]
@@ -87,19 +88,19 @@ class Configuration :
     def get_model_pusher_config(self)->ModelPusherConfig: 
         pass 
 
-    def get_training_pipeline_config(self)->TrainingPipelineConfig:
-        try : 
+    def get_training_pipeline_config(self) ->TrainingPipelineConfig:
+        try:
             training_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
             artifact_dir = os.path.join(ROOT_DIR,
-            training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],           #HOUSING 
-            training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY]     # ARTIFACT
-            )   
-            training_pipeline = TrainingPipelineConfig(artifact_dir=artifact_dir)
-            logging.info(f"Training pipeline config : {training_pipeline_config}")
+            training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
+            training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY]
+            )
 
+            training_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
+            logging.info(f"Training pipleine config: {training_pipeline_config}")
             return training_pipeline_config
-        except Exception as e : 
-            raise  HousingException(e,sys) from e 
+        except Exception as e:
+            raise HousingException(e,sys) from e 
         
       
 
