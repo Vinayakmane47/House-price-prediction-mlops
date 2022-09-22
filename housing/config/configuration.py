@@ -26,7 +26,8 @@ class Configuration :
 
     def get_data_ingestion_config(self)->DataIngestionConfig: 
         try : 
-            artifact_dir = self.training_pipeline_config.artifact_dir
+            #artifact_dir = self.training_pipeline_config.artifact_dir
+            artifact_dir = self.get_training_pipeline_config()["artifact_dir"]
             data_ingestion_artifact_dir=os.path.join(
                 artifact_dir,
                 DATA_INGESTION_ARTIFACT_DIR,
