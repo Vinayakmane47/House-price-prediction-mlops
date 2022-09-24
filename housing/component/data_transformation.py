@@ -14,7 +14,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 import pandas as pd
 from housing.constant import *
-from housing.util.util import read_yaml_file #,save_object,save_numpy_array_data,load_data
+from housing.util.util import read_yaml_file ,save_object,save_numpy_array_data,load_data
 
 
 #   longitude: float
@@ -82,6 +82,7 @@ class FeatureGenerator(BaseEstimator, TransformerMixin):
             return generated_feature
         except Exception as e:
             raise HousingException(e, sys) from e
+
 
 
 
