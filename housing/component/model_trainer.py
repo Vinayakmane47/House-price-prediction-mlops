@@ -74,7 +74,7 @@ class ModelTrainer:
 
             logging.info(f"Initiating operation model selecttion")
             best_model = model_factory.get_best_model(X=x_train,y=y_train,base_accuracy=base_accuracy)
-            
+            # best model gives only one model with best params  while model list gives list of models.
             logging.info(f"Best model found on training dataset: {best_model}")
             
             logging.info(f"Extracting trained model list.")
@@ -82,6 +82,7 @@ class ModelTrainer:
             
             model_list = [model.best_model for model in grid_searched_best_model_list ]
             logging.info(f"Evaluation all trained model on training and testing dataset both")
+            # find out the best model based on accuracy 
             metric_info:MetricInfoArtifact = evaluate_regression_model(model_list=model_list,X_train=x_train,y_train=y_train,X_test=x_test,y_test=y_test,base_accuracy=base_accuracy)
 
             logging.info(f"Best found model on both training and testing dataset.")
@@ -115,11 +116,11 @@ class ModelTrainer:
         logging.info(f"{'>>' * 30}Model trainer log completed.{'<<' * 30} ")
 
 
-
+# steps : 
 #loading transformed training and testing datset
 #reading model config file 
 #getting best model on training datset
-#evaludation models on both training & testing datset -->model object
+#evaludation models on both training & testing datset -->model object {by comparing scores and accuracy }
 #loading preprocessing pbject
 #custom model object by combining both preprocessing obj and model obj
 #saving custom model object

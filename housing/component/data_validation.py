@@ -73,10 +73,19 @@ class DataValidation:
             # NEAR BAY
             # NEAR OCEAN
             #3. Check column names
+            l1 = ['NEAR BAY', '<1H OCEAN', 'INLAND', 'NEAR OCEAN', 'ISLAND']
+            train_df , test_df = self.get_train_and_test_df()
+            for i in train_df["ocean_proximity"] : 
+                if i not in l1 : 
+                    return validation_status  
+            for i in test_df["ocean_proximity"]: 
+                if i not in l1 : 
+                    return validation_status 
 
-
-            validation_status = True
-            return validation_status 
+            if train_df.shape[1] == 10 and test_df.shape[1] == 10 : 
+                validation_status = True 
+            return validation_status
+            
         except Exception as e:
             raise HousingException(e,sys) from e
 

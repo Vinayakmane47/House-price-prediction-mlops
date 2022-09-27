@@ -1,7 +1,7 @@
 from collections import namedtuple
 from datetime import datetime
 import uuid
-from housing.config.configuration import Configuartion
+from housing.config.configuration import  Configuartion
 from housing.logger import logging, get_log_file_name
 from housing.exception import HousingException
 from threading import Thread

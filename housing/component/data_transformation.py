@@ -14,7 +14,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 import pandas as pd
 from housing.constant import *
-from housing.util.util import read_yaml_file ,save_object,save_numpy_array_data,load_data
+from housing.util.util import read_yaml_file,save_object,save_numpy_array_data,load_data
 
 
 #   longitude: float
@@ -82,7 +82,6 @@ class FeatureGenerator(BaseEstimator, TransformerMixin):
             return generated_feature
         except Exception as e:
             raise HousingException(e, sys) from e
-
 
 
 
@@ -197,8 +196,8 @@ class DataTransformation:
 
             logging.info(f"Saving transformed training and testing array.")
             
-            save_numpy_array_data(file_path=transformed_train_file_path,array=train_arr)
-            save_numpy_array_data(file_path=transformed_test_file_path,array=test_arr)
+            save_numpy_array_data(file_path=transformed_train_file_path,array=train_arr) # train 
+            save_numpy_array_data(file_path=transformed_test_file_path,array=test_arr) # test
 
             preprocessing_obj_file_path = self.data_transformation_config.preprocessed_object_file_path
 
@@ -219,12 +218,3 @@ class DataTransformation:
 
     def __del__(self):
         logging.info(f"{'>>'*30}Data Transformation log completed.{'<<'*30} \n\n")
-
-
-
-
-
-
-
-
-

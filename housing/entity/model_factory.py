@@ -263,9 +263,9 @@ class ModelFactory:
                 model = model_obj_ref()
                 
                 if PARAM_KEY in model_initialization_config:
-                    model_obj_property_data = dict(model_initialization_config[PARAM_KEY])
+                    model_obj_property_data = dict(model_initialization_config[PARAM_KEY]) # get params 
                     model = ModelFactory.update_property_of_class(instance_ref=model,
-                                                                  property_data=model_obj_property_data)
+                                                                  property_data=model_obj_property_data) # update the params for model 
 
                 param_grid_search = model_initialization_config[SEARCH_PARAM_GRID_KEY]
                 model_name = f"{model_initialization_config[MODULE_KEY]}.{model_initialization_config[CLASS_KEY]}"

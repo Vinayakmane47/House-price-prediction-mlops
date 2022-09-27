@@ -9,7 +9,7 @@ from six.moves import urllib
 import pandas as pd
 from sklearn.model_selection import StratifiedShuffleSplit
 
-class DataIngestion: 
+class DataIngestion:
 
     def __init__(self,data_ingestion_config:DataIngestionConfig ):
         try:
@@ -116,7 +116,6 @@ class DataIngestion:
         except Exception as e:
             raise HousingException(e,sys) from e
 
-# Driver Code : 
     def initiate_data_ingestion(self)-> DataIngestionArtifact:
         try:
             tgz_file_path =  self.download_housing_data()

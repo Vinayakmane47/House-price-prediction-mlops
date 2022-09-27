@@ -7,5 +7,6 @@ PyYAML
 evidently
 dill
 matplotlib
+six
 
 -e .
