@@ -1,3 +1,3 @@
-# ML_PROJECT
-The Project is Under Construction.
+## California Housing Price Prediction : 
+### App URL : https://housingapp123.herokuapp.com/
 
